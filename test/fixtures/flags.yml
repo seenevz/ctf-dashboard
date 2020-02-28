@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value_digest: MyString
+  prev_flag: one
+  board: one
+
+two:
+  value_digest: MyString
+  prev_flag: two
+  board: two
