@@ -1,8 +1,4 @@
 
-Flag.destroy_all
-Board.destroy_all
-User.destroy_all
-
 5.times do
   User.create(username: Faker::Name.unique.name, password: "test")
 end
@@ -14,6 +10,14 @@ end
 Board.all.each do |board|
   10.times do
     Flag.create(value: Faker::String.random(length: 10), board: board)
+  end
+end
+
+3.times do
+  team = Team.create(name: Faker::Hacker.unique.noun)
+
+  Array(2..4).sample.times do
+    Membership.create(user: User.all.sample, team: team)
   end
 end
 

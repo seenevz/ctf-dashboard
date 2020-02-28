@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_130217) do
+ActiveRecord::Schema.define(version: 2020_02_28_150027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,29 @@ ActiveRecord::Schema.define(version: 2020_02_28_130217) do
     t.index ["flag_id"], name: "index_flags_on_flag_id"
   end
 
+  create_table "game_states", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.string "team_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_game_states_on_team_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "team_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_memberships_on_team_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -46,4 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_130217) do
   add_foreign_key "boards", "users"
   add_foreign_key "flags", "boards"
   add_foreign_key "flags", "flags"
+  add_foreign_key "game_states", "teams"
+  add_foreign_key "memberships", "teams"
+  add_foreign_key "memberships", "users"
 end
