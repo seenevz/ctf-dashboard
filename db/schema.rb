@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_150027) do
+ActiveRecord::Schema.define(version: 2020_02_28_152649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_150027) do
     t.string "team_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "board_id", null: false
+    t.index ["board_id"], name: "index_game_states_on_board_id"
     t.index ["team_id"], name: "index_game_states_on_team_id"
   end
 
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_150027) do
   add_foreign_key "boards", "users"
   add_foreign_key "flags", "boards"
   add_foreign_key "flags", "flags"
+  add_foreign_key "game_states", "boards"
   add_foreign_key "game_states", "teams"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"

@@ -21,4 +21,10 @@ end
   end
 end
 
+possible_players = Team.all + User.all
+
+Board.all.each do |board|
+  GameState.create(board: board, team: possible_players.sample)
+end
+
 puts "\n-------- SEEDED --------\n"
