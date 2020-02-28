@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_115204) do
+ActiveRecord::Schema.define(version: 2020_02_28_130217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.boolean "published"
+    t.boolean "completed"
+    t.string "access_token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "flags", force: :cascade do |t|
+    t.string "value_digest"
+    t.bigint "flag_id"
+    t.bigint "board_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["board_id"], name: "index_flags_on_board_id"
+    t.index ["flag_id"], name: "index_flags_on_flag_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -22,4 +43,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_115204) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "boards", "users"
+  add_foreign_key "flags", "boards"
+  add_foreign_key "flags", "flags"
 end
