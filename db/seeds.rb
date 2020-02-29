@@ -1,6 +1,6 @@
 
 5.times do
-  User.create(username: Faker::Name.unique.name, password: "test")
+  User.create(username: Faker::Name.unique.name, password: "ten_character_password", password_confirmation: "ten_character_password")
 end
 
 2.times do
