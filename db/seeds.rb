@@ -4,7 +4,7 @@
 end
 
 2.times do
-  Board.create(title: Faker::Hacker.unique.ingverb, user: User.all.sample)
+  Board.create(title: Faker::Hacker.unique.ingverb, owner: User.all.sample)
 end
 
 Board.all.each do |board|
@@ -24,7 +24,9 @@ end
 possible_players = Team.all + User.all
 
 Board.all.each do |board|
-  GameState.create(board: board, team: possible_players.sample)
+  tm = possible_players.sample
+
+  GameState.create(board: board, team: tm)
 end
 
 puts "\n-------- SEEDED --------\n"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_152649) do
+ActiveRecord::Schema.define(version: 2020_02_28_171549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,17 @@ ActiveRecord::Schema.define(version: 2020_02_28_152649) do
     t.string "access_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "captures", force: :cascade do |t|
+    t.bigint "flag_id", null: false
+    t.bigint "game_state_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flag_id"], name: "index_captures_on_flag_id"
+    t.index ["game_state_id"], name: "index_captures_on_game_state_id"
   end
 
   create_table "flags", force: :cascade do |t|
@@ -69,6 +79,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_152649) do
   end
 
   add_foreign_key "boards", "users"
+  add_foreign_key "captures", "flags"
+  add_foreign_key "captures", "game_states"
   add_foreign_key "flags", "boards"
   add_foreign_key "flags", "flags"
   add_foreign_key "game_states", "boards"
