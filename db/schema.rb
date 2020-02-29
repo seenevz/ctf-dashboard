@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 2020_02_28_171549) do
   end
 
   create_table "game_states", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.string "team_type"
+    t.string "teamable_type", null: false
+    t.bigint "teamable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "board_id", null: false
     t.index ["board_id"], name: "index_game_states_on_board_id"
-    t.index ["team_id"], name: "index_game_states_on_team_id"
+    t.index ["teamable_type", "teamable_id"], name: "index_game_states_on_teamable_type_and_teamable_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_171549) do
   add_foreign_key "flags", "boards"
   add_foreign_key "flags", "flags"
   add_foreign_key "game_states", "boards"
-  add_foreign_key "game_states", "teams"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"
 end

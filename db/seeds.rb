@@ -24,9 +24,7 @@ end
 possible_players = Team.all + User.all
 
 Board.all.each do |board|
-  tm = possible_players.sample
-
-  GameState.create(board: board, team: tm)
+  GameState.create(board: board, teamable: possible_players.sample)
 end
 
 puts "\n-------- SEEDED --------\n"
