@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_171549) do
   create_table "boards", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
-    t.boolean "published"
-    t.boolean "completed"
+    t.boolean "published", default: false
+    t.boolean "completed", default: false
     t.string "access_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
