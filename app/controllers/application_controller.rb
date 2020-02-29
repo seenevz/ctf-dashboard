@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
   def landing
-    render :landing
+    render :landing, layout: false
   end
 end

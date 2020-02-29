@@ -1,3 +1,18 @@
-<h1>CTF Dashboard</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CtfDashboard</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<p>Welcome! We're a platform for hosting CTF scoreboards</p>
+  <body>
+    <main>
+  <h1>CTF Dashboard</h1>
+  <p>Welcome! We're a platform for hosting CTF scoreboards</p>
+  <%= link_to 'Login/Signup', root_path %>
+</main>
+  </body>
+</html>
