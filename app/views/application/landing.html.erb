@@ -4,7 +4,7 @@
     <title>CtfDashboard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -12,7 +12,7 @@
     <main>
   <h1>CTF Dashboard</h1>
   <p>Welcome! We're a platform for hosting CTF scoreboards</p>
-  <%= link_to 'Login/Signup', root_path %>
+  <%= link_to 'Login/Signup', login_path %>
 </main>
   </body>
 </html>
