@@ -11,10 +11,12 @@
 
   <body>
     <nav>
-       <%= link_to 'Home', root_path %>
-       <%= link_to 'Login', login_path %>
-       <%= link_to 'Home', root_path %>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Login', login_path %>
+      <%= link_to 'Home', root_path %>
     </nav>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

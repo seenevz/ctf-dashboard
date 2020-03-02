@@ -3,3 +3,33 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "reset";
 @import "layout";
+
+.form-container {
+  width: 200px;
+}
+
+.login-form {
+  font-size: x-large;
+
+  * {
+    display: block;
+  }
+
+  label,
+  .button {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    margin: 5% 0;
+    text-align: left;
+    height: 2em;
+    cursor: text;
+    font-size: medium;
+  }
+
+  .button {
+    cursor: pointer;
+  }
+}

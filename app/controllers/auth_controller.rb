@@ -14,7 +14,9 @@ class AuthController < ApplicationController
 
   def destroy_session
   end
+
   private
+  
   def login_params
     params.require(:user).permit(:username, :password)
   end
