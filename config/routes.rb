@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'application#landing'
 
   get '/login', to: "auth#login", as: 'login'
+  post '/login', to: "auth#create_session", as: 'create_session'
 
 
 end

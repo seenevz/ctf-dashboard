@@ -3,7 +3,10 @@ class AuthController < ApplicationController
   end
 
   def create_session
-    if user = User.authenticate(login_params)
+    user = User.find_by(id: login_params[:username])
+            .try(:authenticate, login_params[:password])
+
+    if user
       session[:current_user_id] = user.id
       redirect_to root_path
     else
@@ -18,6 +21,6 @@ class AuthController < ApplicationController
   private
   
   def login_params
-    params.require(:user).permit(:username, :password)
+    params.permit(:username, :password)
   end
 end
