@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+  before_action :current_user, except: [:landing, :login]
 
   def landing
     render :landing, layout: false
@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
+    if @current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
+      byebug
+      @current_user
+    else
+      redirect_to root_path
+    end
   end
 end

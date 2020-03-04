@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/login', to: "auth#login", as: 'login'
   post '/login', to: "auth#create_session", as: 'create_session'
+  post '/logout', to: "auth#destroy_session", as: 'logout'
+  get '/profile', to: 'users#profile', as: 'user_profile'
 
 
 end

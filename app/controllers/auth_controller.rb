@@ -3,12 +3,12 @@ class AuthController < ApplicationController
   end
 
   def create_session
-    user = User.find_by(id: login_params[:username])
+    user = User.find_by(username: login_params[:username])
             .try(:authenticate, login_params[:password])
 
     if user
       session[:current_user_id] = user.id
-      redirect_to root_path
+      redirect_to user_profile_path
     else
       flash.now[:error] = "Wrong username/password"
       render :login
@@ -16,6 +16,10 @@ class AuthController < ApplicationController
   end
 
   def destroy_session
+    session.delete(:current_user_id)
+    @current_user = nil
+
+    redirect_to root_path
   end
 
   private
