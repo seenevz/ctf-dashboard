@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :current_user, except: [:landing, :login]
+  before_action :current_user
+  skip_before_action :current_user, only: [:landing]
 
   def landing
     render :landing, layout: false
