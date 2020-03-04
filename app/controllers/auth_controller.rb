@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
-  skip_before_action :current_user, only: [:login]
+  skip_before_action :current_user, only: [:login, :create_session]
 
   def login
   end

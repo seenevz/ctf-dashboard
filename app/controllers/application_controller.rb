@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if @current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
-      byebug
       @current_user
     else
       redirect_to root_path
