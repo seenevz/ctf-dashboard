@@ -2,6 +2,7 @@ class AuthController < ApplicationController
   skip_before_action :current_user, only: [:login, :create_session]
 
   def login
+    @user = User.new
   end
 
   def create_session
@@ -27,6 +28,6 @@ class AuthController < ApplicationController
   private
   
   def login_params
-    params.permit(:username, :password)
+    params.require(:user).permit(:username, :password)
   end
 end
