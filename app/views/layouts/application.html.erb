@@ -13,9 +13,7 @@
     <nav>
       <%= link_to 'Home', root_path %>
       <% if @current_user  %>
-      <%= link_to 'Logout', root_path %>
-      <% else%>
-      <%= link_to 'Login', logout_path  %>
+      <%= link_to 'Logout', logout_path %>
       <% end %>
     </nav>
     <main>
