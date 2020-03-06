@@ -6,10 +6,11 @@
 
 .form-container {
   width: 325px;
-  padding: 5em 2em;
+  padding: 4em 2em;
   height: 400px;
   border-radius: 45px;
   box-shadow: 5px 5px 30px -8px gray;
+  text-align: center;
 }
 
 .login-form {
@@ -26,7 +27,7 @@
 
   input {
     width: 100%;
-    margin: 5% 0;
+    margin: 6% 0;
     text-align: left;
     height: 2em;
     cursor: text;
