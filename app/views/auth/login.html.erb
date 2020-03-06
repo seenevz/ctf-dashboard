@@ -1,3 +1,5 @@
+  
+
   <div class='form-container'>
     <%= form_with(model: @user, url: login_path, class: 'login-form') do |f| %>
       <%= f.label :username %>
@@ -5,6 +7,9 @@
       <%= f.label :password %>
       <%= f.password_field :password %>
 
-      <%= f.submit class: 'button', value: 'Login' %>
+      <%= f.submit class: 'button',value: 'Login' %>
     <% end %>
+
+    <p><%= flash[:errors] && flash[:errors] %></p>
+      
   </div>

@@ -13,8 +13,8 @@ class AuthController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to user_profile_path
     else
-      flash.now[:error] = "Wrong username/password"
-      render :login
+      flash[:errors] = "Wrong username/password"
+      redirect_to :login
     end
   end
 
