@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get '/logout', to: "auth#destroy_session", as: 'logout'
   get '/profile', to: 'users#profile', as: 'user_profile'
 
-
+  get '/signup', to: 'users#new', as: 'signup'
 end
