@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :current_user
-  skip_before_action :current_user, only: [:landing]
+  before_action :validate_user
+  skip_before_action :validate_user, only: [:landing]
 
   def landing
     render :landing, layout: false
@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    if @current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
-      @current_user
-    else
-      redirect_to root_path
-    end
+    @current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
+  end
+
+  def validate_user
+    @current_user || redirect_to(root_path)
   end
 end

@@ -1,19 +1,23 @@
 <div class='form-container'>
-    <%= form_with(model: @user, url: login_path, class: 'login-form') do |f| %>
+    <% form_url = local_assigns[:signup] ? create_user_path : login_path %>
+
+    <%= form_with(model: @user, url: form_url, class: 'login-form') do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username %>
       <%= f.label :password %>
       <%= f.password_field :password %>
       
       <%# local_assigns[:confirmation] && f.password_field :password_confirmation %>
-      <% if local_assigns[:confirmation] %>
+      <% if local_assigns[:signup] %>
         <%= f.label :password, 'Confirm your password' %>
         <%= f.password_field :password_confirmation %>
       <% end%>
 
-      <%= f.submit class: 'button',value: local_assigns[:confirmation] ? 'Signup' : 'Login' %>
+      <%= f.submit class: 'button',value: local_assigns[:signup] ? 'Signup' : 'Login' %>
     <% end %>
 
-    <p><%= flash[:errors] && flash[:errors] %></p>
+    <% flash[:errors] && flash[:errors].each do |e| %>
+      <p><%= e %></p>
+    <% end %>
       
   </div>

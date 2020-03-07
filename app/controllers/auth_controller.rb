@@ -1,7 +1,8 @@
 class AuthController < ApplicationController
-  skip_before_action :current_user, only: [:login, :create_session]
+  skip_before_action :validate_user, only: [:login, :create_session]
 
   def login
+    is_logged_in?
     @user = User.new
   end
 
@@ -13,7 +14,7 @@ class AuthController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to user_profile_path
     else
-      flash[:errors] = "Wrong username/password"
+      flash[:errors] = ["Wrong username/password"]
       redirect_to :login
     end
   end
@@ -29,5 +30,9 @@ class AuthController < ApplicationController
   
   def login_params
     params.require(:user).permit(:username, :password)
+  end
+
+  def is_logged_in?
+    current_user && (redirect_to user_profile_path(@current_user))
   end
 end
