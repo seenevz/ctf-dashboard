@@ -1,0 +1,19 @@
+<div class='form-container'>
+    <%= form_with(model: @user, url: login_path, class: 'login-form') do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      
+      <%# local_assigns[:confirmation] && f.password_field :password_confirmation %>
+      <% if local_assigns[:confirmation] %>
+        <%= f.label :password, 'Confirm your password' %>
+        <%= f.password_field :password_confirmation %>
+      <% end%>
+
+      <%= f.submit class: 'button',value: local_assigns[:confirmation] ? 'Signup' : 'Login' %>
+    <% end %>
+
+    <p><%= flash[:errors] && flash[:errors] %></p>
+      
+  </div>
