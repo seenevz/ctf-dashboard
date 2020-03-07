@@ -1,0 +1,42 @@
+.form-container {
+  width: 325px;
+  padding: 3em 2em;
+  border-radius: 45px;
+  box-shadow: 5px 5px 30px -8px gray;
+  text-align: center;
+}
+
+.login-form {
+  font-size: x-large;
+
+  * {
+    display: block;
+  }
+
+  label,
+  .button {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    margin: 6% 0;
+    text-align: left;
+    height: 2em;
+    cursor: text;
+    font-size: medium;
+  }
+
+  .button {
+    cursor: pointer;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    transition: ease 0.4s;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 6px 6px 15px -5px rgba(0, 0, 0, 0.75);
+    }
+  }
+}
