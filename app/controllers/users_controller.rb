@@ -13,10 +13,10 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to user_profile_path @user
+      redirect_to(user_profile_path)
     else
       flash[:errors] = @user.errors.full_messages
-      redirect_to :new
+      redirect_to(:new)
     end
   end
 

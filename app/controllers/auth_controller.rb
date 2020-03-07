@@ -1,8 +1,8 @@
 class AuthController < ApplicationController
   skip_before_action :validate_user, only: [:login, :create_session]
+  before_action :is_logged_in?, only: [:login]
 
   def login
-    is_logged_in?
     @user = User.new
   end
 
@@ -12,10 +12,10 @@ class AuthController < ApplicationController
 
     if user
       session[:current_user_id] = user.id
-      redirect_to user_profile_path
+      redirect_to(user_profile_path)
     else
       flash[:errors] = ["Wrong username/password"]
-      redirect_to :login
+      redirect_to(:login)
     end
   end
 
@@ -23,7 +23,7 @@ class AuthController < ApplicationController
     session.delete(:current_user_id)
     @current_user = nil
 
-    redirect_to root_path
+    redirect_to(root_path)
   end
 
   private
@@ -33,6 +33,6 @@ class AuthController < ApplicationController
   end
 
   def is_logged_in?
-    current_user && (redirect_to user_profile_path(@current_user))
+    current_user && redirect_to(user_profile_path)
   end
 end
