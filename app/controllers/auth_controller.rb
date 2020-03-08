@@ -32,7 +32,5 @@ class AuthController < ApplicationController
     params.require(:user).permit(:username, :password)
   end
 
-  def is_logged_in?
-    current_user && redirect_to(user_profile_path)
-  end
+  
 end

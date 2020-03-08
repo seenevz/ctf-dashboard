@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
     current_user
     @current_user || redirect_to(root_path)
   end
+
+  def is_logged_in?
+    current_user && redirect_to(user_profile_path)
+  end
+  
 end
