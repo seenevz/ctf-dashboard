@@ -19,7 +19,10 @@
         </div>
       <% end%>
 
-      <%= f.submit class: 'button',value: local_assigns[:signup] ? 'Signup' : 'Login' %>
+      <div class='button-wrapper'>
+        <div class='button-background'></div>
+        <%= f.submit class: 'button',value: local_assigns[:signup] ? 'Signup' : 'Login' %>
+      </div>
     <% end %>
 
     <% flash[:errors] && flash[:errors].each do |e| %>
