@@ -45,6 +45,12 @@ $font-size-lrg: $font-size * 1.5;
 $font-size-xlrg: $font-size * 2;
 $typeface-stack: "Poppins", sans-serif;
 
+//Global colours
+
+$primary-blue: rgba(19, 76, 241, 1);
+$primary-red: rgba(233, 26, 39, 1);
+$primary-gradient: linear-gradient(325deg, $primary-red 30%, $primary-blue 70%);
+
 body {
   font-size: $font-size;
   font-family: $typeface-stack;

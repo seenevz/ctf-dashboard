@@ -42,11 +42,7 @@
       height: 2px;
       width: 0;
       transition: all 0.4s;
-      background: linear-gradient(
-        325deg,
-        rgba(233, 26, 39, 1) 30%,
-        rgba(19, 76, 241, 1) 70%
-      );
+      background: $primary-gradient;
     }
 
     &::after {
