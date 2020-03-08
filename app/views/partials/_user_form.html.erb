@@ -2,15 +2,21 @@
     <% form_url = local_assigns[:signup] ? create_user_path : login_path %>
 
     <%= form_with(model: @user, url: form_url, class: 'login-form') do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <div class="input-wrapper">
+        <%= f.text_field :username %>
+        <span class='input-focus' value='Username'/>
+      </div>
+      <div class="input-wrapper">
+        <%= f.password_field :password %>
+        <span class='input-focus' value='Password'/>
+      </div>
       
       <%# local_assigns[:confirmation] && f.password_field :password_confirmation %>
       <% if local_assigns[:signup] %>
-        <%= f.label :password, 'Confirm your password' %>
-        <%= f.password_field :password_confirmation %>
+        <div class="input-wrapper">
+          <%= f.password_field :password_confirmation %>
+          <span class='input-focus' value='Password Confirmation'/>
+        </div>
       <% end%>
 
       <%= f.submit class: 'button',value: local_assigns[:signup] ? 'Signup' : 'Login' %>
