@@ -1,6 +1,12 @@
 //jquery style
 const $ = selector => document.querySelectorAll(selector);
 
+const changeInputGroup = callback => {
+  $(".input-wrapper input").forEach(input => {
+    callback(input);
+  });
+};
+
 const changeInputClass = input => {
   input.value === ""
     ? input.classList.remove("has-val")
@@ -8,10 +14,16 @@ const changeInputClass = input => {
 };
 
 //Event listeners for login form
-const loginFormListeners = () => {
-  $(".input-wrapper input").forEach(input => {
-    input.addEventListener("input", () => changeInputClass(input));
-  });
+const loginFormListener = input =>
+  input.addEventListener("focus", () => changeInputClass(input));
+
+const loginFormGroupListeners = () => {
+  changeInputGroup(loginFormListener);
 };
 
-document.addEventListener("DOMContentLoaded", loginFormListeners);
+run = () => {
+  changeInputGroup(changeInputClass); //Form animations on page load
+  loginFormGroupListeners();
+};
+
+document.addEventListener("DOMContentLoaded", run);

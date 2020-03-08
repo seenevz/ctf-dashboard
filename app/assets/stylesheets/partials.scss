@@ -1,6 +1,6 @@
 .form-container {
   width: 390px;
-  padding: 3em 2em;
+  padding: 77px 50px 33px;
   border-radius: 10px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -42,7 +42,11 @@
       height: 2px;
       width: 0;
       transition: all 0.4s;
-      background: red;
+      background: linear-gradient(
+        325deg,
+        rgba(233, 26, 39, 1) 30%,
+        rgba(19, 76, 241, 1) 70%
+      );
     }
 
     &::after {
@@ -77,15 +81,47 @@
   }
 
   .button {
+    width: 100%;
     cursor: pointer;
-    width: 80%;
     margin: 0 auto;
-    border-radius: 15px;
-    transition: ease 0.4s;
+    transition: all 0.4s;
+    // color: #6a6a6a;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0 20px;
+    height: 100%;
+    background: 0 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 6px 6px 15px -5px rgba(0, 0, 0, 0.75);
-    }
+  .button-background {
+    height: 100%;
+    width: 215%;
+    // pointer-events: none;
+    // background: linear-gradient(to left, rgb(255, 97, 97), rgb(30, 130, 252));
+    background: linear-gradient(
+      325deg,
+      rgba(153, 153, 153, 1) 50%,
+      rgba(233, 26, 39, 1) 50%,
+      rgba(233, 26, 39, 1) 65%,
+      rgba(19, 76, 241, 1) 85%
+    );
+    position: absolute;
+    left: -115%;
+    transition: all 0.4s;
+  }
+
+  .button-wrapper:hover > .button-background {
+    left: 0;
+  }
+
+  .button-wrapper {
+    height: 50px;
+    position: relative;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
   }
 }
