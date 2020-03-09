@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render(:new, layout: 'non_authorised')
   end
 
   def create

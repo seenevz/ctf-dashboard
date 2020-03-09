@@ -4,6 +4,7 @@ class AuthController < ApplicationController
 
   def login
     @user = User.new
+    render(:login, layout: 'non_authorised')
   end
 
   def create_session

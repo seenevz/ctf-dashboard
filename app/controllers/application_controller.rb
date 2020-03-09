@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   skip_before_action :validate_user, only: [:landing]
 
   def landing
-    render(:landing, layout: false)
+    render(:landing, layout: 'non_authorised')
   end
 
   private
