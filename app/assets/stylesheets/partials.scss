@@ -8,10 +8,41 @@
 }
 
 .form-header {
+  position: relative;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
   padding-bottom: 25px;
+
+  .error-container {
+    width: 80%;
+    position: absolute;
+    bottom: 25px;
+    left: calc(10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      background-color: rgba(250, 5, 5, 0.5);
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      filter: blur(20px);
+    }
+
+    span {
+      font-size: 14px;
+      color: #860000;
+    }
+  }
 }
 
 .form-logo {

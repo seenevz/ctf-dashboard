@@ -4,7 +4,17 @@
     <div class='form-header'>
       <span><%= local_assigns[:header_text] %></span>
       <span class='form-logo '>CTF//<i>DASH</i></span>
+
+      <% if flash[:errors] %>
+        <div class='error-container'>
+          <% flash[:errors].each do |e| %>
+            <span><%= e %></span>
+          <% end %>
+      </div>
+      <% end %>
+
     </div>
+
     <%= form_with(model: @user, url: form_url, class: 'login-form') do |f| %>
       <div class="input-wrapper">
         <%= f.text_field :username %>
@@ -15,7 +25,6 @@
         <span class='input-focus' value='Password'/>
       </div>
       
-      <%# local_assigns[:confirmation] && f.password_field :password_confirmation %>
       <% if local_assigns[:signup] %>
         <div class="input-wrapper">
           <%= f.password_field :password_confirmation %>
@@ -29,9 +38,6 @@
       </div>
     <% end %>
 
-    <% flash[:errors] && flash[:errors].each do |e| %>
-      <p><%= e %></p>
-    <% end %>
       <div class='form-footer'>
         <% if local_assigns[:signup]  %>
           <span>Already have an account? <%= link_to 'Login', login_path %></span>
