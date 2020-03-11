@@ -2,9 +2,11 @@ class AuthController < ApplicationController
   skip_before_action :validate_user, only: [:login, :create_session]
   before_action :is_logged_in?, only: [:login]
 
+  layout 'non_authorised'
+
   def login
     @user = User.new
-    render(:login, layout: 'non_authorised')
+    # render(:login, layout: 'non_authorised')
   end
 
   def create_session

@@ -1,6 +1,10 @@
 <div class='form-container'>
     <% form_url = local_assigns[:signup] ? create_user_path : login_path %>
 
+    <div class='form-header'>
+      <span><%= local_assigns[:header_text] %></span>
+      <span class='form-logo '>CTF//<i>DASH</i></span>
+    </div>
     <%= form_with(model: @user, url: form_url, class: 'login-form') do |f| %>
       <div class="input-wrapper">
         <%= f.text_field :username %>
@@ -28,5 +32,11 @@
     <% flash[:errors] && flash[:errors].each do |e| %>
       <p><%= e %></p>
     <% end %>
-      
+      <div class='form-footer'>
+        <% if local_assigns[:signup]  %>
+          <span>Already have an account? <%= link_to 'Login', login_path %></span>
+        <% else %>
+          <span>Don't have an account? <%= link_to 'Signup', signup_path %></span>
+        <% end %>
+      </div>
   </div>
