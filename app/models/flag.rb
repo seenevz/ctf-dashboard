@@ -4,6 +4,7 @@ class Flag < ApplicationRecord
   belongs_to :board
   has_many :captures
 
-  has_secure_password :value
+  validates :value, presence: true
 
+  has_secure_password :value
 end

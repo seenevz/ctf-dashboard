@@ -1,0 +1,76 @@
+// Define here global rules to reset and normalise browser behaviours
+// Keep this rules always at the top, and insert global css after this section
+
+* {
+  box-sizing: border-box;
+  cursor: default;
+}
+
+a {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  outline: none;
+}
+
+// * {
+// 	vertical-align: baseline;
+// 	font-weight: inherit;
+// 	font-family: inherit;
+// 	font-style: inherit;
+// 	font-size: 100%;
+// 	border: 0 none;
+// 	outline: 0;
+// 	padding: 0;
+// 	margin: 0;
+// 	}
+
+// Global stylesheet rules start here
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap"); //Font import from google fonts
+
+$font-size: 20px;
+$font-size-sml: $font-size * 0.8;
+$font-size-lrg: $font-size * 1.5;
+$font-size-xlrg: $font-size * 2;
+$typeface-stack: "Poppins", sans-serif;
+
+//Global colours
+
+$primary-blue: rgba(19, 76, 241, 1);
+$primary-red: rgba(233, 26, 39, 1);
+$primary-gradient: linear-gradient(325deg, $primary-red 30%, $primary-blue 70%);
+
+body {
+  font-size: $font-size;
+  font-family: $typeface-stack;
+  line-height: 1.5;
+  height: 100vh;
+  color: #212529;
+  background-color: #f2f2f2;
+}
+
+a {
+  color: $primary-blue;
+  transition: all 0.4s;
+
+  &:visited {
+    color: $primary-blue;
+  }
+}
+
+a:hover {
+  color: #4e6e98;
+}

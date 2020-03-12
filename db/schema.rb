@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_152649) do
+ActiveRecord::Schema.define(version: 2020_02_28_171549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,22 @@ ActiveRecord::Schema.define(version: 2020_02_28_152649) do
   create_table "boards", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
-    t.boolean "published"
-    t.boolean "completed"
+    t.boolean "published", default: false
+    t.boolean "completed", default: false
     t.string "access_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "captures", force: :cascade do |t|
+    t.bigint "flag_id", null: false
+    t.bigint "game_state_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flag_id"], name: "index_captures_on_flag_id"
+    t.index ["game_state_id"], name: "index_captures_on_game_state_id"
   end
 
   create_table "flags", force: :cascade do |t|
@@ -37,13 +47,13 @@ ActiveRecord::Schema.define(version: 2020_02_28_152649) do
   end
 
   create_table "game_states", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.string "team_type"
+    t.string "teamable_type", null: false
+    t.bigint "teamable_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "board_id", null: false
     t.index ["board_id"], name: "index_game_states_on_board_id"
-    t.index ["team_id"], name: "index_game_states_on_team_id"
+    t.index ["teamable_type", "teamable_id"], name: "index_game_states_on_teamable_type_and_teamable_id"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -69,10 +79,11 @@ ActiveRecord::Schema.define(version: 2020_02_28_152649) do
   end
 
   add_foreign_key "boards", "users"
+  add_foreign_key "captures", "flags"
+  add_foreign_key "captures", "game_states"
   add_foreign_key "flags", "boards"
   add_foreign_key "flags", "flags"
   add_foreign_key "game_states", "boards"
-  add_foreign_key "game_states", "teams"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"
 end

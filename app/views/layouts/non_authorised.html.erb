@@ -10,14 +10,6 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Home', root_path %>
-      <% if @current_user  %>
-      <%= link_to 'Logout', logout_path %>
-      <% end %>
-    </nav>
-    <main>
-      <%= yield %>
-    </main>
+    <%= yield %>
   </body>
 </html>

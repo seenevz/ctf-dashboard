@@ -1,10 +1,12 @@
 
+User.create(username: 'test', password: "ten_character_password", password_confirmation: "ten_character_password")
+
 5.times do
-  User.create(username: Faker::Name.unique.name, password: "test")
+  User.create(username: Faker::Name.unique.name, password: "ten_character_password", password_confirmation: "ten_character_password")
 end
 
 2.times do
-  Board.create(title: Faker::Hacker.unique.ingverb, user: User.all.sample)
+  Board.create(title: Faker::Hacker.unique.ingverb, owner: User.all.sample)
 end
 
 Board.all.each do |board|
@@ -24,7 +26,7 @@ end
 possible_players = Team.all + User.all
 
 Board.all.each do |board|
-  GameState.create(board: board, team: possible_players.sample)
+  GameState.create(board: board, teamable: possible_players.sample)
 end
 
 puts "\n-------- SEEDED --------\n"

@@ -10,20 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
-
- html, body {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
-
- body {
-   display: flex;
-   height: 100vh;
-   align-items: center;
-   justify-content: center;
-  flex-direction: column;
- }
+@import "global";
+@import "landing";
