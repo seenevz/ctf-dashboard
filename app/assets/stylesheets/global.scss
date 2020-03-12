@@ -49,8 +49,9 @@ $typeface-stack: "Poppins", sans-serif;
 
 //Global colours
 
-$primary-blue: rgba(19, 76, 241, 1);
-$primary-red: rgba(233, 26, 39, 1);
+$primary-blue: rgba(38, 24, 177, 1);
+$primary-red: rgba(255, 7, 0, 1);
+$primary-green: rgba(175, 238, 93, 1);
 $primary-gradient: linear-gradient(325deg, $primary-red 30%, $primary-blue 70%);
 
 body {
@@ -72,5 +73,6 @@ a {
 }
 
 a:hover {
-  color: #4e6e98;
+  color: $primary-green;
+  // color: #4e6e98;
 }
