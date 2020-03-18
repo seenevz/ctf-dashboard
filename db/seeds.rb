@@ -1,3 +1,6 @@
+puts "Seeds started"
+
+start_time = Time.now
 
 User.create(username: 'test', password: "ten_character_password", password_confirmation: "ten_character_password")
 
@@ -29,4 +32,7 @@ Board.all.each do |board|
   GameState.create(board: board, teamable: possible_players.sample)
 end
 
+end_time = Time.now
+
 puts "\n-------- SEEDED --------\n"
+puts "Seeding took #{end_time - start_time} s"
