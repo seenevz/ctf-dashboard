@@ -2,7 +2,7 @@ puts "Seeds started"
 
 start_time = Time.now
 
-User.create(username: 'test', password: "ten_character_password", password_confirmation: "ten_character_password")
+User.create(username: 'test', password: "32", password_confirmation: "ten_character_password")
 
 5.times do
   User.create(username: Faker::Name.unique.name, password: "ten_character_password", password_confirmation: "ten_character_password")

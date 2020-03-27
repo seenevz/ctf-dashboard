@@ -10,13 +10,18 @@
   </head>
 
   <body>
-    <nav class='nav-container'>
+    <section class='sidebar-container'>
+        side bar
+      </section>
+    <main class='layout-container'>
+      <nav class='nav-container'>
       <%= link_to 'Home', root_path %>
+      <div>
       <% if @current_user  %>
       <%= link_to 'Logout', logout_path %>
       <% end %>
+      </div>
     </nav>
-    <main>
       <%= yield %>
     </main>
   </body>

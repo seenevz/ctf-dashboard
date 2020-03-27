@@ -1,4 +1,5 @@
 .main-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,6 +7,17 @@
 }
 
 .nav-container {
-  height: 6%;
+  height: 9vh;
   background-color: lightblue;
+}
+
+.sidebar-container {
+  width: 240px;
+  background-color: red;
+}
+
+.layout-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
