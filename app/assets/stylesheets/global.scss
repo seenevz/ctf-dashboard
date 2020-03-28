@@ -51,10 +51,10 @@ $typeface-stack: "Poppins", sans-serif;
 
 $primary-white: #f2f2f2;
 $primary-black: #212529;
-$primary-blue: rgba(38, 24, 177, 1);
-$primary-red: rgba(255, 7, 0, 1);
-$primary-green: rgba(175, 238, 93, 1);
-$primary-backgroung-grey: #eaeef2;
+$primary-blue: rgba(0, 86, 245, 1);
+$primary-red: rgba(255, 0, 7, 1);
+$primary-green: rgba(255, 247, 0, 1);
+$primary-backgroung-grey: #cecece;
 $primary-gradient: linear-gradient(325deg, $primary-red 30%, $primary-blue 70%);
 
 body {
@@ -62,7 +62,7 @@ body {
   font-size: $font-size;
   font-family: $typeface-stack;
   line-height: 1.5;
-  min-height: 100vh;
+  height: 100vh;
   color: $primary-black;
   background-color: $primary-white;
 }

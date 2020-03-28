@@ -21,5 +21,10 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+
+.display-container {
+  flex-grow: 1;
   background-color: $primary-backgroung-grey;
+  overflow-y: auto;
 }
