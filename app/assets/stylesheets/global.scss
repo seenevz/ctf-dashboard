@@ -49,17 +49,22 @@ $typeface-stack: "Poppins", sans-serif;
 
 //Global colours
 
-$primary-blue: rgba(19, 76, 241, 1);
-$primary-red: rgba(233, 26, 39, 1);
+$primary-white: #f2f2f2;
+$primary-black: #212529;
+$primary-blue: rgba(0, 86, 245, 1);
+$primary-red: rgba(255, 0, 7, 1);
+$primary-green: rgba(255, 247, 0, 1);
+$primary-backgroung-grey: #cecece;
 $primary-gradient: linear-gradient(325deg, $primary-red 30%, $primary-blue 70%);
 
 body {
+  display: flex;
   font-size: $font-size;
   font-family: $typeface-stack;
   line-height: 1.5;
   height: 100vh;
-  color: #212529;
-  background-color: #f2f2f2;
+  color: $primary-black;
+  background-color: $primary-white;
 }
 
 a {
@@ -72,5 +77,6 @@ a {
 }
 
 a:hover {
-  color: #4e6e98;
+  color: $primary-green;
+  // color: #4e6e98;
 }

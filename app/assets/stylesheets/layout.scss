@@ -1,11 +1,30 @@
-main {
+.main-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-nav {
-  height: 10%;
-  background-color: lightblue;
+.nav-container {
+  background-color: $primary-white;
+  height: 9vh;
+}
+
+.sidebar-container {
+  width: 240px;
+  background-color: $primary-blue;
+  color: $primary-white;
+}
+
+.layout-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.display-container {
+  flex-grow: 1;
+  background-color: $primary-backgroung-grey;
+  overflow-y: auto;
 }
