@@ -7,6 +7,7 @@
 }
 
 .nav-container {
+  display: flex;
   background-color: $primary-white;
   height: 9vh;
 }
@@ -27,4 +28,8 @@
   flex-grow: 1;
   background-color: $primary-backgroung-grey;
   overflow-y: auto;
+}
+
+.nav-right-float {
+  width: 150px;
 }
