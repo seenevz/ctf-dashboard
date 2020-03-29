@@ -10,6 +10,8 @@
 
 .nav-container {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: $primary-white;
   height: 9vh;
 }
@@ -32,6 +34,37 @@
   overflow-y: auto;
 }
 
-.nav-right-float {
+.nav-side-float {
+  width: 180px;
+  text-align: end;
+  padding: 0 25px;
+}
+
+.nav-centre-float {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.sidebar-user {
+  display: flex;
+  height: 275px;
+  background-color: red;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.sidebar-avatar {
+  height: 150px;
   width: 150px;
+  background-image: url("https://placeimg.com/300/300/tech");
+  border-radius: 50%;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: black;
 }
