@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CtfDashboard</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag params[:controller], media: "all", 'data-turbolinks-track': "reload" %>
-    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
-  </head>
 
-  <body>
-    <section class='sidebar-container'>
-        <div class='sidebar-user'> 
-        <div class='sidebar-avatar'>
-          user avatar will go here
-        </div>
-        Logged in user: <%= @current_user.username %></div>
-      </section>
-    <main class='layout-container'>
-      <nav class='nav-container'>
-        <div class='nav-side-float'></div>
-        <div class='nav-centre-float'>
-          <%= link_to "Home", root_path %>
-          <a href="">Profile</a>
-          <a href="">Boards</a>
-        </div>
-        <div class='nav-side-float' >
-          <%= link_to "Logout", logout_path %>
-        </div>
+<head>
+  <title>CtfDashboard</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag params[:controller], media: "all", 'data-turbolinks-track': "reload" %>
+  <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+</head>
+
+<body>
+  <aside class='sidebar-container'>
+    <div class='sidebar-user'>
+      <div class='sidebar-avatar'>
+        user avatar will go here
+      </div>
+      Logged in user: <%= @current_user.username %>
+    </div>
+  </aside>
+  <main class='layout-container'>
+    <nav class='nav-container'>
+      <div class='nav-side-float'></div>
+      <div class='nav-centre-float'>
+        <%= link_to "Home", root_path %>
+        <a href="">Profile</a>
+        <a href="">Boards</a>
+      </div>
+      <div class='nav-side-float'>
+        <%= link_to "Logout", logout_path %>
+      </div>
     </nav>
     <section class='display-container'>
       <%= yield %>
     </section>
-    </main>
-  </body>
+  </main>
+</body>
+
 </html>

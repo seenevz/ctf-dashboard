@@ -2,16 +2,15 @@ class AuthController < ApplicationController
   skip_before_action :validate_user, only: [:login, :create_session]
   before_action :is_logged_in?, only: [:login]
 
-  layout 'non_authorised'
+  layout "non_authorised"
 
   def login
     @user = User.new
-    # render(:login, layout: 'non_authorised')
   end
 
   def create_session
     user = User.find_by(username: login_params[:username])
-            .try(:authenticate, login_params[:password])
+      .try(:authenticate, login_params[:password])
 
     if user
       session[:current_user_id] = user.id
@@ -30,10 +29,8 @@ class AuthController < ApplicationController
   end
 
   private
-  
+
   def login_params
     params.require(:user).permit(:username, :password)
   end
-
-  
 end
