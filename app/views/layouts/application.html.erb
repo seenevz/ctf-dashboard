@@ -18,10 +18,14 @@
       </div>
       Logged in user: <%= @current_user.username %>
     </div>
+    <div class='sidebar-links'>
+      <%= yield :sidebar %>
+    </div>
   </aside>
   <main class='layout-container'>
     <nav class='nav-container'>
-      <div class='nav-side-float'></div>
+      <div class='nav-side-float'>
+      </div>
       <div class='nav-centre-float'>
         <%= link_to "Home", root_path %>
         <a href="">Profile</a>

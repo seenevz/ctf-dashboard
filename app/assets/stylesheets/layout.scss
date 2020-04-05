@@ -1,5 +1,9 @@
 @import "global";
 
+a:hover {
+  color: initial;
+}
+
 .main-container {
   width: 100%;
   display: flex;
@@ -67,4 +71,42 @@
   align-items: center;
   text-align: center;
   color: black;
+}
+
+.sidebar-links {
+  margin-top: 100px;
+
+  ul {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+    height: 100px;
+    position: relative;
+  }
+
+  li:hover {
+    background-color: $secondary-blue;
+  }
+
+  .selected::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    background-color: $primary-red;
+  }
+
+  a {
+    display: block;
+    color: $primary-green;
+    height: 100%;
+    &:visited {
+      color: $primary-green;
+    }
+  }
 }
