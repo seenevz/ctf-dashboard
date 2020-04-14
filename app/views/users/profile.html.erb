@@ -6,4 +6,11 @@
     </ul>
 <% end %>
 
-<h1><%= @current_user.username %></h1>
+<% case %>
+  <% when current_page?(user_profile_info_path) %>
+    <%= render "partials/user_info" %>
+  <% when current_page?(user_profile_boards_path) %>
+    <%= render "partials/user_boards" %>
+  <% when current_page?(user_profile_stats_path) %>
+    <%= render "partials/user_stats" %>
+<% end %>
