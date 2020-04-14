@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   skip_before_action :validate_user, only: [:landing]
 
   def landing
-    render(:landing, layout: 'non_authorised')
+    render(:landing, layout: "non_authorised")
   end
 
   private
@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def is_logged_in?
-    current_user && redirect_to(user_profile_path)
+    current_user && redirect_to(user_profile_path(current_user.username))
   end
-  
 end
