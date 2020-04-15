@@ -14,7 +14,7 @@ class AuthController < ApplicationController
 
     if user
       session[:current_user_id] = user.id
-      redirect_to(user_profile_path)
+      redirect_to(user_profile_info_path(user.username))
     else
       flash[:errors] = ["Wrong username/password"]
       redirect_to(:login)

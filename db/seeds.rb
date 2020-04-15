@@ -2,15 +2,15 @@ puts "Seeds started"
 
 start_time = Time.now
 
-User.create(username: "test", password: "ten_character_password", password_confirmation: "ten_character_password")
+User.create(username: "test", password: "ten_char_password", password_confirmation: "ten_char_password")
 
 if ENV["RAILS_ENV"] == "development"
-  5.times do
-    User.create(username: Faker::Name.unique.name, password: "ten_character_password", password_confirmation: "ten_character_password")
+  10.times do
+    User.create(username: Faker::Name.unique.name, password: "ten_char_password", password_confirmation: "ten_char_password")
   end
 
-  2.times do
-    Board.create(title: Faker::Hacker.unique.ingverb, owner: User.all.sample)
+  50.times do
+    Board.create(title: Faker::Hacker.ingverb, owner: User.all.sample)
   end
 
   Board.all.each do |board|
@@ -19,7 +19,7 @@ if ENV["RAILS_ENV"] == "development"
     end
   end
 
-  3.times do
+  5.times do
     team = Team.create(name: Faker::Hacker.unique.noun)
 
     Array(2..4).sample.times do
