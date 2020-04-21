@@ -4,4 +4,28 @@
 <li>Table format</li>
 <li>links to boards descriptions</li>
 </ul>
-<%= pp @current_user.owned_boards %>
+
+<table class='user-boards-table'>
+  <thead>
+    <th>Title</th>
+    <th>Published?</th>
+    <th>Completed?</th>
+    <th>Date created</th>
+    <th>Participants</th>
+    <th>Flags no</th>
+    <th>Description</th>
+  </thead>
+  <tbody>
+    <% @current_user.owned_boards.each do |board| %>
+      <tr>
+        <td><%= board.title %></td>
+        <td><%= board.published ? "yes" : "no" %></td>
+        <td><%= board.completed ? "yes" : "no" %></td>
+        <td><%= board.created_at_parsed %></td>
+        <td><%= board.players_count %></td>
+        <td><%= board.flags_count %></td>
+        <td><%= board.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

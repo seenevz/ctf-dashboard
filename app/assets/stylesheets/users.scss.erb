@@ -12,7 +12,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(<%=asset_path"landing_background2.jpg"%>);
+  background-image: url(<%= asset_path "landing_background2.jpg" %>);
   background-size: cover;
   background-position: center;
+}
+
+// User owned boards table
+
+.user-boards-table {
+  margin: 0 auto;
+  width: 90%;
+}
+
+td, th {
+  border: 1px solid black
 }
