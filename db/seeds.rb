@@ -4,7 +4,7 @@ start_time = Time.now
 
 User.create(username: "test", password: "ten_char_password", password_confirmation: "ten_char_password")
 
-if ENV["RAILS_ENV"] == "development"
+if ENV["RAILS_ENV"] == "development" || ENV["STAGING_APP"]
   10.times do
     User.create(username: Faker::Name.unique.name, password: "ten_char_password", password_confirmation: "ten_char_password")
   end
