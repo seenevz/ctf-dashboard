@@ -13,7 +13,7 @@
     <th>Date created</th>
     <th>Participants</th>
     <th>Flags no</th>
-    <th>Description</th>
+    <th></th>
   </thead>
   <tbody>
     <% @current_user.owned_boards.each do |board| %>
@@ -24,7 +24,7 @@
         <td><%= board.created_at_parsed %></td>
         <td><%= board.players_count %></td>
         <td><%= board.flags_count %></td>
-        <td><%= board.description %></td>
+        <td><%= link_to "See board page", board_path(board) %></td>
       </tr>
     <% end %>
   </tbody>
