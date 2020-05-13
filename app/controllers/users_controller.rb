@@ -14,15 +14,11 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to(user_profile_info_path(@user.username)) #user_profile_path takes the user's username
+      redirect_to(profile_info_path(@user.username)) #profile_path takes the user's username
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to(signup_path)
     end
-  end
-
-  def new_board
-    @board = Board.new
   end
 
   private

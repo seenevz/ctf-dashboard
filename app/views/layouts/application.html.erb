@@ -28,8 +28,13 @@
       </div>
       <div class='nav-centre-float'>
         <%= link_to "Home", root_path %>
-        <a href="">Profile</a>
-        <a href="">Boards</a>
+        <a href=<%= profile_info_path(@current_user.username) %>>Profile</a>
+        <%
+=begin%>
+ <a href=<%= all boards? %>>Boards</a> 
+<%
+=end
+        %>
       </div>
       <div class='nav-side-float'>
         <%= link_to "Logout", logout_path %>
