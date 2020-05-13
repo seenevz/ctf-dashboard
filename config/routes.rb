@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create", as: "create_user"
 
   get "/boards/:id", to: "boards#show", as: "board"
-
+  
   ## keep this routes at the bottom to avoid mismatches
   get "/:username/info", to: "users#profile", as: "user_profile_info"
   get "/:username/boards", to: "users#profile", as: "user_profile_boards"
   get "/:username/stats", to: "users#profile", as: "user_profile_stats"
+  get "/:username/new", to: "users#new_board", as: "new_board"
 end

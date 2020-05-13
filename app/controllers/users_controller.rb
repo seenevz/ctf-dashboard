@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def new_board
+    @board = Board.new
+  end
+
   private
 
   def user_params
