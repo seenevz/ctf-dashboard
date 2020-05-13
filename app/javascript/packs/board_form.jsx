@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom'
 
 import FlagInput from './flag_input'
 
+const BASE_URL = 'http://127.0.0.1:3000'
+
 const BoardForm = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -29,9 +31,37 @@ const BoardForm = () => {
     updatedFlags.splice(index, 1)
     setFlags(updatedFlags)
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+
+    fetch(BASE_URL + '/boards', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-Token': csrfToken,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        flags,
+      })
+    })
+    .then( resp => resp.json() )
+    .then( newBoard => {
+      if (newBoard.error) {
+        // handle error
+      } else {
+        document.location.pathname = `/boards/${newBoard.id}`
+      }
+    })
+  }
   
   return (
-    <form className="board-form">
+    <form className="board-form" onSubmit={handleSubmit}>
       <label htmlFor="title">Title</label>
       <input
         id="title"
