@@ -4,6 +4,10 @@ class BoardsController < ApplicationController
         @board = Board.find(params[:id])
     end
 
+    def new
+        @board = Board.new
+    end
+
     def create
         new_board = Board.new(board_params)
         new_board.owner = current_user
