@@ -2,6 +2,16 @@ class BoardsController < ApplicationController
 
     def show
         @board = Board.find(params[:id])
+
+        if @board.completed
+            render 'completed_board'
+        elsif @board.published
+            render 'published_board'
+        elsif @board.owner.id === @current_user.id
+            render 'draft_board'
+        else
+            redirect_to not_found_path
+        end
     end
 
     def new

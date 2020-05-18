@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get "/u/:username", to: "users#profile", as: "profile_info"
   get "/u/:username/my-boards", to: "users#profile", as: "profile_boards"
   get "/u/:username/stats", to: "users#profile", as: "profile_stats"
+
+  get "/404-not-found", to: "application#not_found", as: "not_found" 
 end

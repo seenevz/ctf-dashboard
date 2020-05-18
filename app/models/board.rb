@@ -22,4 +22,20 @@ class Board < ApplicationRecord
   def created_at_parsed
     self.created_at.strftime("%d/%m/%Y")
   end
+
+  def status
+    # self.completed
+    # ? "completed"
+    # : self.published
+    #   ? "published"
+    #   : "draft"
+
+    if self.completed
+      "completed"
+    elsif self.published
+      "published"
+    else
+      "draft"
+    end
+  end
 end

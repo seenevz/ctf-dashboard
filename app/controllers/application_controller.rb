@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_user, :validate_user
-  skip_before_action :validate_user, only: [:landing]
+  skip_before_action :validate_user, only: [:landing, :not_found]
 
   def landing
     if @current_user
@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     else
       render(:landing, layout: "non_authorised")
     end
+  end
+
+  def not_found
+    
   end
 
   private
