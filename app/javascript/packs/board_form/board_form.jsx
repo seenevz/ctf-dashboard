@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom'
 
 import FlagInput from './flag_input'
 
-const BASE_URL = 'http://127.0.0.1:3000'
+import requests from '../requests'
 
 const BoardForm = () => {
   const [title, setTitle] = useState('')
@@ -35,27 +35,14 @@ const BoardForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-
-    fetch(BASE_URL + '/boards', {
-      method: 'POST',
-      headers: {
-        'X-CSRF-Token': csrfToken,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({
-        title,
-        description,
-        flags,
-      })
-    })
-    .then( resp => resp.json() )
+    requests.createBoard({ title, description, flags })
     .then( newBoard => {
       if (newBoard.error) {
         // handle error
+        console.error("createBoard: ", newBoard.error)
       } else {
-        document.location.pathname = `/boards/${newBoard.id}`
+        // refactor redirect?
+        document.location.pathname = `/b/${newBoard.id}`
       }
     })
   }
