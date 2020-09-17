@@ -28,7 +28,7 @@
       </div>
       <div class='nav-centre-float'>
         <%= link_to "Home", root_path %>
-        <a href=<%= profile_info_path(@current_user.username) %>>Profile</a>
+        <%= link_to 'Profile', profile_info_path(@current_user.username) %>
         <%
 =begin%>
  <a href=<%= all boards? %>>Boards</a> 

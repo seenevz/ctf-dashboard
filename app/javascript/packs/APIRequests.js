@@ -21,15 +21,12 @@ const compactFetch = (urlExtension, { method, headers, body }) => {
         },
         body: JSON.stringify(body),
     }
-
-    debugger
     
     return fetch(urlExtension, options)
     .then( parseJson )
 }
 
 const parseJson = (req) => {
-    debugger
     if (req.ok) {
         return req.json()
     } else {
