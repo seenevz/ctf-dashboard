@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   post "/b", to: "boards#create"
 
   ## keep this routes at the bottom to avoid mismatches
-  get "/u/:username", to: "users#profile", as: "profile_info"
-  get "/u/:username/my-boards", to: "users#profile", as: "profile_boards"
-  get "/u/:username/stats", to: "users#profile", as: "profile_stats"
+  get ":username", to: "users#profile", as: "profile_info"
+  get ":username/my-boards", to: "users#profile", as: "profile_boards"
+  get ":username/stats", to: "users#profile", as: "profile_stats"
 
   get "/404-not-found", to: "application#not_found", as: "not_found" 
 end

@@ -21,6 +21,12 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+local: &local
+  role: postgres
+  username: postgres
+  password: <%= ENV.fetch("POSTGRES_DEV_PASSWORD")%>
+  host: localhost
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -42,17 +48,15 @@ default: &default
   #min_messages: notice
 development:
   <<: *default
+  <<: *local
   database: ctf-dashboard-dev
-  role: postgres
-  username: postgres
-  password: <%= ENV.fetch("POSTGRES_DEV_PASSWORD")%>
-  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  <<: *local
   database: ctf-dashboard-test
 
 
