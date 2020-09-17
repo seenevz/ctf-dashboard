@@ -14,7 +14,6 @@ const changeInputClass = input =>
 //Event listeners for login form
 const loginFormListener = input =>
   input.addEventListener("input", () => {
-    console.log(input.value);
     changeInputClass(input);
   });
 

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render(:new, layout: 'non_authorised')
+    render(:new, layout: "non_authorised")
   end
 
   def create
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to(user_profile_path)
+      redirect_to(profile_info_path(@user.username)) #profile_path takes the user's username
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to(signup_path)

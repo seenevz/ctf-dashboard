@@ -1,0 +1,43 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "global";
+@import "layout";
+@import "partials";
+
+// This root container is used for the sigup form
+.login-root-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(<%= asset_path "landing_background2.jpg" %>);
+  background-size: cover;
+  background-position: center;
+}
+
+// User owned boards table
+
+.user-boards-table {
+  margin: 0 auto;
+  width: 90%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: $primary-white;
+
+  th {
+    background-color: $primary-blue;
+    color: $primary-white
+  }
+
+  tr {
+    border-top: 1px solid #0056f5;
+  }
+
+  td, th {
+    text-align: center;
+    padding: 0.5em 1em;
+}
+}
+

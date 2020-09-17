@@ -1,1 +1,16 @@
-<h1><%= @current_user.username %></h1>
+<%= content_for(:sidebar) do %>
+    <ul>
+      <li class="<%= "selected" if current_page?(profile_info_path) %>"><%= link_to "My Info", profile_info_path %></li>
+      <li class="<%= "selected" if current_page?(profile_boards_path) %>"><%= link_to "My Boards", profile_boards_path %></li>
+      <li class="<%= "selected" if current_page?(profile_stats_path) %>"><%= link_to "My Stats", profile_stats_path %></li>
+    </ul>
+<% end %>
+
+<% case %>
+  <% when current_page?(profile_info_path) %>
+    <%= render "partials/user_info" %>
+  <% when current_page?(profile_boards_path) %>
+    <%= render "partials/user_boards" %>
+  <% when current_page?(profile_stats_path) %>
+    <%= render "partials/user_stats" %>
+<% end %>

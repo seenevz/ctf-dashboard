@@ -1,11 +1,114 @@
-main {
+@import "global";
+
+a:hover {
+  color: initial;
+}
+
+.main-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-nav {
-  height: 10%;
-  background-color: lightblue;
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: $primary-white;
+  height: 9vh;
+}
+
+.sidebar-container {
+  width: 16.667%;
+  background-color: $primary-blue;
+  color: $primary-white;
+}
+
+.layout-container {
+  width: 83.333%;
+  // flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.display-container {
+  flex-grow: 1;
+  background-color: $primary-backgroung-grey;
+  overflow-y: auto;
+}
+
+.nav-side-float {
+  width: 180px;
+  text-align: end;
+  padding: 0 25px;
+}
+
+.nav-centre-float {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.sidebar-user {
+  display: flex;
+  height: 275px;
+  background-color: red;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.sidebar-avatar {
+  height: 150px;
+  width: 150px;
+  background-image: url("https://placeimg.com/300/300/tech");
+  border-radius: 50%;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: black;
+}
+
+.sidebar-links {
+  margin-top: 100px;
+
+  ul {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  li {
+    list-style: none;
+    height: 100px;
+    position: relative;
+    line-height: 100px;
+  }
+
+  li:hover {
+    background-color: $secondary-blue;
+  }
+
+  .selected::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    background-color: $primary-red;
+  }
+
+  a {
+    display: block;
+    color: $primary-green;
+    height: 100%;
+    &:visited {
+      color: $primary-green;
+    }
+  }
 }
