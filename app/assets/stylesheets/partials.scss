@@ -172,3 +172,28 @@
     overflow: hidden;
   }
 }
+
+
+//Table used in users and boards partials
+
+.user-boards-table {
+  margin: 0 auto;
+  width: 90%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: $primary-white;
+
+  th {
+    background-color: $primary-blue;
+    color: $primary-white
+  }
+
+  tr {
+    border-top: 1px solid #0056f5;
+  }
+
+  td, th {
+    text-align: center;
+    padding: 0.5em 1em;
+}
+}

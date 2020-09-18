@@ -1,3 +1,12 @@
+<%= content_for(:sidebar) do %>
+    <ul>
+      <li class="<%= "selected" if current_page?(profile_info_path(@current_user.username)) %>"><%= link_to "My Info", profile_info_path(@current_user.username) %></li>
+      <li class="<%= "selected" if current_page?(profile_boards_path(@current_user.username)) %>"><%= link_to "My Boards", profile_boards_path(@current_user.username) %></li>
+      <li class="<%= "selected" if current_page?(profile_stats_path(@current_user.username)) %>"><%= link_to "My Stats", profile_stats_path(@current_user.username) %></li>
+    </ul>
+<% end %>
+
+
 <% case %>
   <% when @board.completed %>
     <h1>[COMPLETED BOARD]</h1>
@@ -10,3 +19,5 @@
 <h2>Board: <%= @board.title %></h2>
 <h6>Status: <%= @board.status %></h6>
 <p>Description: <%= @board.description %></p>
+
+<%= javascript_pack_tag 'board_table/showBoard' %>
