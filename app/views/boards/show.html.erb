@@ -1,0 +1,12 @@
+<% case %>
+  <% when @board.completed %>
+    <h1>[COMPLETED BOARD]</h1>
+  <% when @board.published %>
+    <h1>[PUBLISHED BOARD]</h1>
+  <% when @board.owner.id === @current_user.id %>
+    <h1>[DRAFT BOARD]</h1>
+<% end %>
+
+<h2>Board: <%= @board.title %></h2>
+<h6>Status: <%= @board.status %></h6>
+<p>Description: <%= @board.description %></p>
