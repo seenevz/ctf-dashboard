@@ -47,42 +47,50 @@ const BoardForm = () => {
   };
 
   return (
-    <form className="board-form" onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        id="title"
-        type="text"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-      />
-      <br />
+    <>
+      <ul>
+        <li>Use same table from boards display</li>
+        <li>Redo buttons</li>
+        <li>Redo form to look like login</li>
+      </ul>
 
-      <label htmlFor="description">Description</label>
-      <input
-        id="description"
-        type="textaread"
-        value={description}
-        onChange={e => setDescription(e.target.value)}
-      />
-      <br />
-
-      <hr />
-      <h4>Flags</h4>
-      <button onClick={addFlag}>+</button>
-      <br />
-
-      {flags.map((flag, index) => (
-        <FlagInput
-          key={index}
-          index={index}
-          flag={flag}
-          changeFlag={changeFlag}
-          removeFlag={removeFlag}
+      <form className="board-form" onSubmit={handleSubmit}>
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          type="text"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
         />
-      ))}
+        <br />
 
-      <input type="submit" value='Create Board'/>
-    </form>
+        <label htmlFor="description">Description</label>
+        <input
+          id="description"
+          type="textaread"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+        <br />
+
+        <hr />
+        <h4>Flags</h4>
+        <button onClick={addFlag}>+</button>
+        <br />
+
+        {flags.map((flag, index) => (
+          <FlagInput
+            key={index}
+            index={index}
+            flag={flag}
+            changeFlag={changeFlag}
+            removeFlag={removeFlag}
+          />
+        ))}
+
+        <input type="submit" value="Create Board" />
+      </form>
+    </>
   );
 };
 

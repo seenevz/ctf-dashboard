@@ -21,7 +21,7 @@ class BoardsController < ApplicationController
     def create
         new_board = Board.new(board_params)
         new_board.owner = @current_user
-        byebug
+        
         if new_board.valid?
             params[:flags].each do |flag|
                 Flag.create(value: flag, board: new_board)
