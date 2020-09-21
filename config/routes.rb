@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create", as: "create_user"
 
   get "/b/new", to: "boards#new", as: "new_board"
+  get 'b/flags/:board_id', to: 'flags#index_by_board'
   get "/b/:id", to: "boards#show", as: "board"
   post "/b", to: "boards#create"
+
+  
 
   ## keep this routes at the bottom to avoid mismatches
   get ":username", to: "users#profile", as: "profile_info"

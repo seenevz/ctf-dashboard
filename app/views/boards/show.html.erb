@@ -16,6 +16,7 @@
     <h1>[DRAFT BOARD]</h1>
 <% end %>
 
-
+<%= content_tag :div, id: 'data', data: {board: @board, current_user: @current_user}.to_json do %>
+<% end %>
 
 <%= javascript_pack_tag 'show_board/showBoard' %>
