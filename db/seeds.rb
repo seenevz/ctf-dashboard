@@ -36,5 +36,11 @@ end
 
 end_time = Time.now
 
+total_time = end_time - start_time
+
+minutes = (total_time / 60).to_int
+
+seconds = (total_time % 60).to_int
+
 puts "\n-------- SEEDED --------\n"
-puts "Seeding took #{end_time - start_time} s"
+puts "Seeding took #{ "#{minutes} mins and" if minutes > 0 } #{seconds} secs"
