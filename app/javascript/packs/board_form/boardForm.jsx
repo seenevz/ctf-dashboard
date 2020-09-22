@@ -7,7 +7,7 @@ import ReactDOM from "react-dom";
 
 import FlagInput from "./flagInput";
 
-import requests from "../APIRequests";
+import req from "../APIRequests";
 
 const BoardForm = () => {
   const [title, setTitle] = useState("");
@@ -35,7 +35,7 @@ const BoardForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    requests.createBoard({ title, description, flags }).then(newBoard => {
+    req.createBoard({ title, description, flags }).then(newBoard => {
       if (newBoard.error) {
         // handle error
         console.error("createBoard: ", newBoard.error);
