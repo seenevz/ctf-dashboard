@@ -1,16 +1,7 @@
-const BASE_URL = "http://127.0.0.1:3000";
-
+// PRIVATE FUNCTIONS
 const csrfToken = () =>
   document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
-const createBoard = board => {
-  return compactFetch("/b", {
-    method: "POST",
-    body: board,
-  });
-};
-
-// PRIVATE FUNCTIONS
 const compactFetch = (urlExtension, { method, headers, body }) => {
   const options = {
     method,
@@ -34,6 +25,20 @@ const parseJson = req => {
   }
 };
 
+// Exported requests
+
+const createBoard = board => {
+  return compactFetch("/b", {
+    method: "POST",
+    body: board,
+  });
+};
+
+const getFlagsForBoard = boardId => {
+  return compactFetch("/b/flags/" + boardId, { method: "GET" });
+};
+
 export default {
   createBoard,
+  getFlagsForBoard,
 };
